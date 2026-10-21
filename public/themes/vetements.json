@@ -1,0 +1,27 @@
+{
+  "id": "vetements",
+  "label": "Les vêtements",
+  "emoji": "👕",
+  "mots": [
+    { "mot": "pantalon", "det": "le", "emoji": "👖", "arasaac": 2565 },
+    { "mot": "chemise", "det": "la", "arasaac": 13640 },
+    { "mot": "robe", "det": "la", "emoji": "👗", "arasaac": 2613 },
+    { "mot": "jupe", "det": "la", "arasaac": 2391 },
+    { "mot": "chaussure", "det": "la", "emoji": "👞", "arasaac": 32923 },
+    { "mot": "chaussette", "det": "la", "emoji": "🧦", "arasaac": 8339 },
+    { "mot": "bonnet", "det": "le", "arasaac": 2412 },
+    { "mot": "casquette", "det": "la", "emoji": "🧢", "arasaac": 2411 },
+    { "mot": "écharpe", "det": "l'", "emoji": "🧣", "arasaac": 2290 },
+    { "mot": "gant", "det": "le", "emoji": "🧤", "arasaac": 8353 },
+    { "mot": "manteau", "det": "le", "emoji": "🧥", "arasaac": 2242 },
+    { "mot": "pull", "det": "le", "arasaac": 2436 },
+    { "mot": "short", "det": "le", "emoji": "🩳", "arasaac": 13638 },
+    { "mot": "pyjama", "det": "le", "arasaac": 2522 },
+    { "mot": "botte", "det": "la", "arasaac": 8299 },
+    { "mot": "ceinture", "det": "la", "arasaac": 2336 },
+    { "mot": "cravate", "det": "la", "arasaac": 2716 },
+    { "mot": "chapeau", "det": "le", "arasaac": 2572 },
+    { "mot": "t-shirt", "det": "le", "emoji": "👕", "arasaac": 2309 },
+    { "mot": "sandale", "det": "la", "arasaac": 37575 }
+  ]
+}

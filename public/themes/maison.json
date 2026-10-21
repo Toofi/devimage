@@ -1,0 +1,27 @@
+{
+  "id": "maison",
+  "label": "La maison",
+  "emoji": "🏠",
+  "mots": [
+    { "mot": "lit", "det": "le", "emoji": "🛏️", "arasaac": 2304 },
+    { "mot": "table", "det": "la", "arasaac": 3129 },
+    { "mot": "chaise", "det": "la", "emoji": "🪑", "arasaac": 4960 },
+    { "mot": "porte", "det": "la", "emoji": "🚪", "arasaac": 3244 },
+    { "mot": "fenêtre", "det": "la", "emoji": "🪟", "arasaac": 2611 },
+    { "mot": "lampe", "det": "la", "arasaac": 4936 },
+    { "mot": "canapé", "det": "le", "emoji": "🛋️", "arasaac": 2571 },
+    { "mot": "télévision", "det": "la", "emoji": "📺", "arasaac": 25498 },
+    { "mot": "baignoire", "det": "la", "emoji": "🛁", "arasaac": 2272 },
+    { "mot": "frigo", "det": "le", "arasaac": 3272 },
+    { "mot": "clé", "det": "la", "emoji": "🔑", "arasaac": 8153 },
+    { "mot": "miroir", "det": "le", "emoji": "🪞", "arasaac": 8573 },
+    { "mot": "armoire", "det": "l'", "arasaac": 2258 },
+    { "mot": "fourchette", "det": "la", "arasaac": 2588 },
+    { "mot": "cuillère", "det": "la", "emoji": "🥄", "arasaac": 2362 },
+    { "mot": "couteau", "det": "le", "emoji": "🔪", "arasaac": 3237 },
+    { "mot": "assiette", "det": "l'", "arasaac": 2532 },
+    { "mot": "balai", "det": "le", "emoji": "🧹", "arasaac": 2745 },
+    { "mot": "bougie", "det": "la", "emoji": "🕯️", "arasaac": 6242 },
+    { "mot": "savon", "det": "le", "emoji": "🧼", "arasaac": 2964 }
+  ]
+}

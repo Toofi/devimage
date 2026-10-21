@@ -1,0 +1,159 @@
+<main class="mx-auto flex max-w-3xl flex-col gap-8 px-4 pb-36 pt-8 sm:px-6">
+  <header class="text-center">
+    <h1 class="font-display text-5xl font-black tracking-tight text-ochre sm:text-6xl">Devimage</h1>
+    <p class="mt-1 font-hand text-2xl text-ink-soft">Lis le mot, trouve la bonne image !</p>
+  </header>
+
+  <section class="flex flex-col gap-3" aria-labelledby="themes">
+    <div class="flex flex-wrap items-baseline justify-between gap-2">
+      <h2 id="themes" class="tape tape-rose -rotate-1 font-display text-lg font-bold">
+        Les thèmes
+      </h2>
+      <div class="flex gap-3 font-hand text-xl">
+        <button
+          type="button"
+          class="underline decoration-dotted underline-offset-4"
+          (click)="selection.selectAll()"
+        >
+          Tout
+        </button>
+        <span aria-hidden="true" class="text-taupe">·</span>
+        <button
+          type="button"
+          class="underline decoration-dotted underline-offset-4"
+          (click)="selection.selectNone()"
+        >
+          Rien
+        </button>
+      </div>
+    </div>
+
+    @switch (catalog.status()) {
+      @case ('loading') {
+        <p class="font-hand text-2xl text-ink-soft">Je range les cartes…</p>
+      }
+      @case ('error') {
+        <div class="flex flex-col items-start gap-2 rounded-lg bg-rose-soft p-4">
+          <p>Impossible de charger les thèmes 😕</p>
+          <button type="button" class="btn-ink bg-white text-base" (click)="catalog.load()">
+            Réessayer
+          </button>
+        </div>
+      }
+      @case ('ready') {
+        <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4" role="list">
+          @for (theme of catalog.themes(); track theme.id) {
+            @let on = selection.isSelected(theme);
+            <li>
+              <button
+                type="button"
+                class="flex w-full flex-col items-center gap-1 rounded-lg border-2 px-2 py-4 transition"
+                [class]="
+                  on
+                    ? 'border-ink bg-white shadow-[2px_2px_0_var(--color-ink)]'
+                    : 'border-dashed border-taupe/60 bg-paper/60 text-ink-soft opacity-70'
+                "
+                [attr.aria-pressed]="on"
+                (click)="selection.toggle(theme)"
+              >
+                <span class="text-5xl leading-none" aria-hidden="true">{{ theme.emoji }}</span>
+                <span class="mt-2 font-display text-lg font-bold leading-tight">{{
+                  theme.label
+                }}</span>
+                <span class="font-hand text-lg leading-none">{{ theme.words.length }} mots</span>
+              </button>
+            </li>
+          }
+        </ul>
+      }
+    }
+  </section>
+
+  <section class="index-card flex flex-col gap-5 p-5" aria-labelledby="reglages">
+    <h2 id="reglages" class="font-display text-2xl font-bold">Réglages</h2>
+
+    <label class="flex cursor-pointer items-start gap-3">
+      <input
+        type="checkbox"
+        class="mt-1 size-5 accent-sage"
+        [checked]="settings.helpEnabled()"
+        (change)="settings.helpEnabled.set(!settings.helpEnabled())"
+      />
+      <span>
+        <strong class="block">Bouton d'aide 🔈</strong>
+        <span class="text-sm text-ink-soft">
+          Permet d'écouter le mot avant de choisir. Sans lui, le mot n'est lu qu'une fois la bonne
+          image trouvée.
+        </span>
+      </span>
+    </label>
+
+    <div class="flex flex-col gap-3">
+      <span class="font-hand text-2xl text-ink-soft">La voix</span>
+      @if (speaker.supported) {
+        <label class="flex flex-col gap-1 text-sm">
+          <span class="font-semibold">Voix</span>
+          <select
+            class="rounded-lg border-2 border-ink bg-white px-3 py-2 font-read text-base"
+            (change)="onVoice($event)"
+          >
+            <option value="" [selected]="!settings.voiceId()">
+              Automatique (Belgique en priorité)
+            </option>
+            @for (voice of speaker.voices(); track voice.id) {
+              <option [value]="voice.id" [selected]="voice.id === settings.voiceId()">
+                {{ voice.label }}
+              </option>
+            }
+          </select>
+        </label>
+        <label class="flex flex-col gap-1 text-sm">
+          <span class="font-semibold">
+            Vitesse :
+            {{ settings.rate() < 0.75 ? 'lente' : settings.rate() < 0.95 ? 'posée' : 'normale' }}
+          </span>
+          <input
+            type="range"
+            min="0.5"
+            max="1.1"
+            step="0.05"
+            class="accent-rose"
+            [value]="settings.rate()"
+            (input)="onRate($event)"
+          />
+        </label>
+        <button type="button" class="btn-ink self-start bg-white text-base" (click)="testVoice()">
+          <span aria-hidden="true">🔊</span> Tester la voix
+        </button>
+      } @else {
+        <p class="rounded-lg bg-rose-soft p-3 text-sm">
+          Ce navigateur ne sait pas parler 😕 — essaie avec Chrome, Edge ou Safari.
+        </p>
+      }
+    </div>
+  </section>
+
+  <button
+    type="button"
+    class="self-center font-hand text-xl text-ink-soft underline decoration-dotted underline-offset-4"
+    (click)="screen.show('credits')"
+  >
+    Crédits des images
+  </button>
+</main>
+
+<div class="fixed inset-x-0 bottom-0 border-t border-dot bg-paper/90 px-4 py-4 backdrop-blur">
+  <div class="mx-auto flex max-w-3xl items-center justify-between gap-4">
+    <span class="font-hand text-2xl text-ink-soft">
+      {{ selection.wordCount() }} {{ selection.wordCount() > 1 ? 'cartes' : 'carte' }}
+    </span>
+    <button
+      type="button"
+      class="btn-ink bg-ochre px-8 text-xl disabled:cursor-not-allowed disabled:opacity-40"
+      [disabled]="!selection.canStart()"
+      (click)="start()"
+    >
+      C'est parti !
+    </button>
+  </div>
+</div>

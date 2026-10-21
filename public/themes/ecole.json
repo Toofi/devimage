@@ -1,0 +1,24 @@
+{
+  "id": "ecole",
+  "label": "L'école",
+  "emoji": "🎒",
+  "mots": [
+    { "mot": "crayon", "det": "le", "emoji": "✏️", "arasaac": 2440 },
+    { "mot": "cahier", "det": "le", "emoji": "📓", "arasaac": 2359 },
+    { "mot": "livre", "det": "le", "emoji": "📖", "arasaac": 25191 },
+    { "mot": "gomme", "det": "la", "arasaac": 2409 },
+    { "mot": "règle", "det": "la", "emoji": "📏", "arasaac": 2815 },
+    { "mot": "tableau", "det": "le", "arasaac": 2526 },
+    { "mot": "colle", "det": "la", "arasaac": 2510 },
+    { "mot": "stylo", "det": "le", "emoji": "🖊️", "arasaac": 2282 },
+    { "mot": "pinceau", "det": "le", "emoji": "🖌️", "arasaac": 2523 },
+    { "mot": "ordinateur", "det": "l'", "emoji": "💻", "arasaac": 7214 },
+    { "mot": "globe", "det": "le", "arasaac": 27798 },
+    { "mot": "calculatrice", "det": "la", "arasaac": 5419 },
+    { "mot": "taille-crayon", "det": "le", "arasaac": 2553 },
+    { "mot": "craie", "det": "la", "arasaac": 16343 },
+    { "mot": "agrafeuse", "det": "l'", "arasaac": 2413 },
+    { "mot": "bureau", "det": "le", "arasaac": 2916 },
+    { "mot": "cartable", "det": "le", "arasaac": 2475 }
+  ]
+}

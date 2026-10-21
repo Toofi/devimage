@@ -1,0 +1,27 @@
+{
+  "id": "nourriture",
+  "label": "La nourriture",
+  "emoji": "🍎",
+  "mots": [
+    { "mot": "pomme", "det": "la", "emoji": "🍎", "arasaac": 2462 },
+    { "mot": "banane", "det": "la", "emoji": "🍌", "arasaac": 2530 },
+    { "mot": "poire", "det": "la", "emoji": "🍐", "arasaac": 2561 },
+    { "mot": "fraise", "det": "la", "emoji": "🍓", "arasaac": 2400 },
+    { "mot": "cerise", "det": "la", "emoji": "🍒", "arasaac": 8303 },
+    { "mot": "raisin", "det": "le", "emoji": "🍇", "arasaac": 3247 },
+    { "mot": "citron", "det": "le", "emoji": "🍋", "arasaac": 3022 },
+    { "mot": "carotte", "det": "la", "emoji": "🥕", "arasaac": 2619 },
+    { "mot": "tomate", "det": "la", "emoji": "🍅", "arasaac": 2594 },
+    { "mot": "pain", "det": "le", "emoji": "🥖", "arasaac": 2494 },
+    { "mot": "fromage", "det": "le", "emoji": "🧀", "arasaac": 2541 },
+    { "mot": "œuf", "det": "l'", "emoji": "🥚", "arasaac": 2427 },
+    { "mot": "lait", "det": "le", "emoji": "🥛", "arasaac": 2445 },
+    { "mot": "gâteau", "det": "le", "emoji": "🎂", "arasaac": 2579 },
+    { "mot": "pizza", "det": "la", "emoji": "🍕", "arasaac": 2527 },
+    { "mot": "bonbon", "det": "le", "emoji": "🍬", "arasaac": 2686 },
+    { "mot": "chocolat", "det": "le", "emoji": "🍫", "arasaac": 25940 },
+    { "mot": "ananas", "det": "l'", "emoji": "🍍", "arasaac": 2525 },
+    { "mot": "croissant", "det": "le", "emoji": "🥐", "arasaac": 2358 },
+    { "mot": "champignon", "det": "le", "emoji": "🍄", "arasaac": 10220 }
+  ]
+}

@@ -1,0 +1,101 @@
+<main class="mx-auto flex min-h-dvh max-w-2xl flex-col gap-5 px-4 pb-6 pt-4">
+  <header class="flex flex-col gap-2">
+    <div class="flex items-center justify-between">
+      <button
+        type="button"
+        class="font-hand text-2xl text-ink-soft underline decoration-dotted underline-offset-4"
+        (click)="session.quit()"
+      >
+        ← Arrêter
+      </button>
+      <span class="font-hand text-2xl" aria-live="polite">
+        {{ session.progress().done }} / {{ session.progress().total }} mots
+      </span>
+    </div>
+    <div
+      class="h-3 overflow-hidden rounded-full border-[1.5px] border-ink bg-white"
+      aria-hidden="true"
+    >
+      <div
+        class="h-full bg-sage transition-[width] duration-300"
+        [style.width.%]="progressPercent()"
+      ></div>
+    </div>
+  </header>
+
+  @for (r of round() ? [round()!] : []; track r) {
+    <div class="card-enter flex flex-1 flex-col justify-center gap-6">
+      <!-- Le mot à lire -->
+      <div class="relative">
+        <span
+          class="tape tape-ochre absolute -top-3 left-1/2 z-10 h-7 w-28 -translate-x-1/2 rotate-2"
+          aria-hidden="true"
+        ></span>
+        <div class="index-card flex min-h-40 items-center justify-center gap-4 px-4 py-8">
+          <p
+            class="text-center font-read font-bold leading-none"
+            [class]="isLongWord() ? 'text-5xl sm:text-7xl' : 'text-6xl sm:text-8xl'"
+          >
+            <span
+              class="font-normal text-ink-soft"
+              [class]="isLongWord() ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl'"
+              >{{ articlePrefix(r.answer) }}</span
+            >{{ r.answer.text }}
+          </p>
+          @if (settings.helpEnabled()) {
+            <button
+              type="button"
+              class="shrink-0 rounded-full border-2 border-ink bg-white p-2 text-2xl"
+              aria-label="Écouter le mot"
+              (click)="help()"
+            >
+              🔈
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Les trois images -->
+      <ul
+        class="grid grid-cols-3 gap-3 sm:gap-5"
+        role="list"
+        aria-label="Quelle image correspond au mot ?"
+      >
+        @for (option of r.options; track option.id; let i = $index) {
+          <li>
+            <button
+              type="button"
+              class="flex aspect-square w-full items-center justify-center rounded-xl border-2 border-ink bg-white p-2 shadow-[3px_3px_0_var(--color-ink)] transition active:translate-y-0.5 disabled:cursor-default sm:p-4"
+              [class.opacity-40]="session.wrongPicks().has(option.id)"
+              [class.bg-sage-soft]="markOf(option) === 'circle'"
+              [disabled]="isDisabled(option)"
+              [attr.aria-label]="'Image ' + (i + 1)"
+              [appRoughMark]="markOf(option)"
+              (click)="session.pick(option)"
+            >
+              <app-picture
+                class="size-full"
+                [picture]="option.picture"
+                emojiSize="clamp(3rem, 16vw, 7rem)"
+              />
+            </button>
+          </li>
+        }
+      </ul>
+
+      <div class="min-h-16" aria-live="polite">
+        @if (session.solved()) {
+          <button
+            type="button"
+            class="btn-ink w-full bg-sage py-4 text-xl text-white"
+            (click)="session.next()"
+          >
+            Bravo ! Suivant <span aria-hidden="true">→</span>
+          </button>
+        } @else if (session.wrongPicks().size > 0) {
+          <p class="text-center font-hand text-3xl text-ink-soft">Presque ! Relis bien le mot…</p>
+        }
+      </div>
+    </div>
+  }
+</main>

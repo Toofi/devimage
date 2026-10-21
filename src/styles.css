@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+
+/* Polices auto-hébergées (fonctionnent hors ligne dans la PWA) */
+@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource/caveat/latin-400.css';
+@import '@fontsource/caveat/latin-600.css';
+@import '@fontsource/andika/latin-400.css';
+@import '@fontsource/andika/latin-700.css';
+
+/* ——— Design tokens : style « papier & fait main » (repris de Diatona) ——— */
+@theme {
+  --color-paper: #fbf6ec;
+  --color-paper-deep: #f3ead8;
+  --color-dot: #dccfb8;
+  --color-ink: #2e2a26;
+  --color-ink-soft: #6b5f52;
+
+  --color-rose: #b85c50;
+  --color-rose-soft: #f2d9d3;
+  --color-sage: #5f7f5c;
+  --color-sage-soft: #dce6d6;
+  --color-ochre: #d7a53c;
+  --color-ochre-deep: #9c7019;
+  --color-ochre-soft: #f5e6c4;
+  --color-taupe: #8b7d6b;
+  --color-taupe-deep: #6e604f;
+  --color-taupe-soft: #e7dfd3;
+  --color-pen: #c0392b;
+
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
+  /* Andika : police conçue pour l'apprentissage de la lecture (a et g « d'école »). */
+  --font-read: 'Andika', 'Trebuchet MS', sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply min-h-dvh text-ink font-display antialiased;
+    background-color: var(--color-paper);
+    background-image: radial-gradient(circle, var(--color-dot) 1.1px, transparent 1.4px);
+    background-size: 22px 22px;
+    background-position: 11px 11px;
+  }
+  button {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  :focus-visible {
+    outline: 3px dashed var(--color-pen);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* ——— Washi tape ——— */
+@layer components {
+  .tape {
+    --tape: var(--color-rose);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 1.1rem;
+    color: var(--color-ink);
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        color-mix(in srgb, white 30%, transparent) 0 6px,
+        transparent 6px 12px
+      ),
+      color-mix(in srgb, var(--tape) 45%, var(--color-paper));
+    clip-path: polygon(
+      2% 0, 98% 0, 100% 18%, 98% 36%, 100% 54%, 98% 72%, 100% 90%, 98% 100%,
+      2% 100%, 0 82%, 2% 64%, 0 46%, 2% 28%, 0 10%
+    );
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.04);
+  }
+  .tape-rose { --tape: var(--color-rose); }
+  .tape-sage { --tape: var(--color-sage); }
+  .tape-ochre { --tape: var(--color-ochre); }
+  .tape-taupe { --tape: var(--color-taupe); }
+
+  .tape-off {
+    background: repeating-linear-gradient(
+        -45deg,
+        color-mix(in srgb, var(--tape) 12%, transparent) 0 6px,
+        transparent 6px 12px
+      ),
+      color-mix(in srgb, var(--tape) 10%, var(--color-paper));
+    color: var(--color-ink-soft);
+  }
+
+  /* Fiche bristol */
+  .index-card {
+    background:
+      repeating-linear-gradient(
+        transparent 0 31px,
+        rgb(110 140 180 / 0.16) 31px 32px
+      ),
+      #fffdf7;
+    border: 1px solid #e8dcc6;
+    border-radius: 6px;
+    box-shadow:
+      0 1px 2px rgb(46 42 38 / 0.08),
+      0 10px 24px -8px rgb(46 42 38 / 0.22);
+  }
+
+  .hl-rose { color: var(--color-rose); }
+  .hl-sage { color: var(--color-sage); }
+  .hl-ochre { color: var(--color-ochre-deep); }
+  .hl-taupe { color: var(--color-taupe-deep); }
+
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-ink px-5 py-3 font-display text-lg font-semibold transition active:translate-y-0.5;
+    box-shadow: 3px 3px 0 var(--color-ink);
+  }
+  .btn-ink:active {
+    box-shadow: 1px 1px 0 var(--color-ink);
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateX(40px) rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.card-enter {
+  animation: card-enter 280ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

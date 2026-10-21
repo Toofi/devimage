@@ -1,0 +1,23 @@
+{
+  "id": "corps",
+  "label": "Le corps",
+  "emoji": "🖐️",
+  "mots": [
+    { "mot": "main", "det": "la", "emoji": "✋", "arasaac": 2928 },
+    { "mot": "pied", "det": "le", "emoji": "🦶", "arasaac": 25327 },
+    { "mot": "tête", "det": "la", "arasaac": 2673 },
+    { "mot": "œil", "det": "l'", "emoji": "👁️", "arasaac": 6573 },
+    { "mot": "nez", "det": "le", "emoji": "👃", "arasaac": 2887 },
+    { "mot": "bouche", "det": "la", "emoji": "👄", "arasaac": 2663 },
+    { "mot": "oreille", "det": "l'", "emoji": "👂", "arasaac": 2871 },
+    { "mot": "dent", "det": "la", "emoji": "🦷", "arasaac": 10267 },
+    { "mot": "bras", "det": "le", "arasaac": 2669 },
+    { "mot": "jambe", "det": "la", "emoji": "🦵", "arasaac": 8666 },
+    { "mot": "doigt", "det": "le", "arasaac": 3298 },
+    { "mot": "ventre", "det": "le", "arasaac": 2786 },
+    { "mot": "dos", "det": "le", "arasaac": 2748 },
+    { "mot": "genou", "det": "le", "arasaac": 14540 },
+    { "mot": "cou", "det": "le", "arasaac": 25040 },
+    { "mot": "ongle", "det": "l'", "arasaac": 2783 }
+  ]
+}

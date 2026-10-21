@@ -1,0 +1,27 @@
+{
+  "id": "jouets",
+  "label": "Les jouets",
+  "emoji": "🧸",
+  "mots": [
+    { "mot": "ballon", "det": "le", "emoji": "⚽", "arasaac": 2269 },
+    { "mot": "poupée", "det": "la", "arasaac": 26238 },
+    { "mot": "nounours", "det": "le", "emoji": "🧸", "arasaac": 4945 },
+    { "mot": "toupie", "det": "la", "arasaac": 8663 },
+    { "mot": "cerf-volant", "det": "le", "emoji": "🪁", "arasaac": 2350 },
+    { "mot": "puzzle", "det": "le", "emoji": "🧩", "arasaac": 2540 },
+    { "mot": "robot", "det": "le", "emoji": "🤖", "arasaac": 6208 },
+    { "mot": "dé", "det": "le", "emoji": "🎲", "arasaac": 2731 },
+    { "mot": "bille", "det": "la", "arasaac": 36507 },
+    { "mot": "yoyo", "det": "le", "emoji": "🪀", "arasaac": 8734 },
+    { "mot": "tambour", "det": "le", "emoji": "🥁", "arasaac": 2578 },
+    { "mot": "trompette", "det": "la", "emoji": "🎺", "arasaac": 2607 },
+    { "mot": "toboggan", "det": "le", "arasaac": 4759 },
+    { "mot": "balançoire", "det": "la", "arasaac": 4608 },
+    { "mot": "marionnette", "det": "la", "arasaac": 26897 },
+    { "mot": "seau", "det": "le", "emoji": "🪣", "arasaac": 2725 },
+    { "mot": "pelle", "det": "la", "arasaac": 2867 },
+    { "mot": "raquette", "det": "la", "arasaac": 2544 },
+    { "mot": "xylophone", "det": "le", "arasaac": 2616 },
+    { "mot": "trampoline", "det": "le", "arasaac": 23887 }
+  ]
+}

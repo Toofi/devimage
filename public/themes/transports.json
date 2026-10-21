@@ -1,0 +1,26 @@
+{
+  "id": "transports",
+  "label": "Les transports",
+  "emoji": "🚗",
+  "mots": [
+    { "mot": "voiture", "det": "la", "emoji": "🚗", "arasaac": 6981 },
+    { "mot": "bus", "det": "le", "emoji": "🚌", "arasaac": 38090 },
+    { "mot": "train", "det": "le", "emoji": "🚆", "arasaac": 7282 },
+    { "mot": "avion", "det": "l'", "emoji": "✈️", "arasaac": 6924 },
+    { "mot": "vélo", "det": "le", "emoji": "🚲", "arasaac": 6935 },
+    { "mot": "bateau", "det": "le", "emoji": "🚢", "arasaac": 2273 },
+    { "mot": "moto", "det": "la", "emoji": "🏍️", "arasaac": 7166 },
+    { "mot": "camion", "det": "le", "emoji": "🚚", "arasaac": 6956 },
+    { "mot": "tracteur", "det": "le", "emoji": "🚜", "arasaac": 2600 },
+    { "mot": "hélicoptère", "det": "l'", "emoji": "🚁", "arasaac": 7126 },
+    { "mot": "fusée", "det": "la", "emoji": "🚀", "arasaac": 2344 },
+    { "mot": "ambulance", "det": "l'", "emoji": "🚑", "arasaac": 6899 },
+    { "mot": "trottinette", "det": "la", "emoji": "🛴", "arasaac": 2508 },
+    { "mot": "sous-marin", "det": "le", "arasaac": 3157 },
+    { "mot": "voilier", "det": "le", "emoji": "⛵", "arasaac": 8714 },
+    { "mot": "caravane", "det": "la", "arasaac": 38741 },
+    { "mot": "skateboard", "det": "le", "emoji": "🛹", "arasaac": 2507 },
+    { "mot": "kayak", "det": "le", "arasaac": 6179 },
+    { "mot": "roller", "det": "le", "arasaac": 30602 }
+  ]
+}

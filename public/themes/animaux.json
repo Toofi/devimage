@@ -1,0 +1,27 @@
+{
+  "id": "animaux",
+  "label": "Les animaux",
+  "emoji": "🐾",
+  "mots": [
+    { "mot": "chat", "det": "le", "emoji": "🐱", "arasaac": 7114 },
+    { "mot": "chien", "det": "le", "emoji": "🐶", "arasaac": 7202 },
+    { "mot": "vache", "det": "la", "emoji": "🐄", "arasaac": 2609 },
+    { "mot": "cochon", "det": "le", "emoji": "🐖", "arasaac": 2327 },
+    { "mot": "cheval", "det": "le", "emoji": "🐎", "arasaac": 2294 },
+    { "mot": "mouton", "det": "le", "emoji": "🐑", "arasaac": 2489 },
+    { "mot": "poule", "det": "la", "emoji": "🐔", "arasaac": 2403 },
+    { "mot": "lapin", "det": "le", "emoji": "🐇", "arasaac": 2351 },
+    { "mot": "canard", "det": "le", "emoji": "🦆", "arasaac": 2563 },
+    { "mot": "poisson", "det": "le", "emoji": "🐟", "arasaac": 2520 },
+    { "mot": "lion", "det": "le", "emoji": "🦁", "arasaac": 2449 },
+    { "mot": "éléphant", "det": "l'", "emoji": "🐘", "arasaac": 2372 },
+    { "mot": "girafe", "det": "la", "emoji": "🦒", "arasaac": 2437 },
+    { "mot": "singe", "det": "le", "emoji": "🐒", "arasaac": 2477 },
+    { "mot": "crocodile", "det": "le", "emoji": "🐊", "arasaac": 2343 },
+    { "mot": "serpent", "det": "le", "emoji": "🐍", "arasaac": 2568 },
+    { "mot": "tortue", "det": "la", "emoji": "🐢", "arasaac": 2596 },
+    { "mot": "ours", "det": "l'", "emoji": "🐻", "arasaac": 2488 },
+    { "mot": "grenouille", "det": "la", "emoji": "🐸", "arasaac": 2543 },
+    { "mot": "papillon", "det": "le", "emoji": "🦋", "arasaac": 2465 }
+  ]
+}
