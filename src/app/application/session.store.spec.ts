@@ -3,7 +3,8 @@ import { Word } from '../domain/word';
 import { Speaker } from './ports';
 import { ScreenStore } from './screen.store';
 import { SessionStore } from './session.store';
-import { ANIMAUX, FakeSpeaker, fakeAdapters, FRUITS } from './testing/fakes';
+import { CatalogStore } from './catalog.store';
+import { ANIMAUX, FakeSpeaker, fakeAdapters, FRUITS, theme } from './testing/fakes';
 
 describe('SessionStore', () => {
   let session: SessionStore;
@@ -66,6 +67,18 @@ describe('SessionStore', () => {
     }
     expect(screen.current()).toBe('done');
     expect(session.struggles()).toEqual([{ word: hard, misses: 1 }]);
+  });
+
+  it('cherche dans tous les thèmes des pièges qui commencent comme le mot', async () => {
+    const vetements = theme('vetements', { chapeau: '🎩', chaussette: '🧦' });
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({ providers: fakeAdapters([ANIMAUX, FRUITS, vetements]) });
+    await TestBed.inject(CatalogStore).load();
+    session = TestBed.inject(SessionStore);
+
+    const chat = ANIMAUX.words.find((w) => w.text === 'chat')!;
+    session.start([chat], ANIMAUX.words);
+    expect(new Set(session.round()!.options)).toEqual(new Set([chat, ...vetements.words]));
   });
 
   it('rejouer les mots difficiles garde tous les pièges possibles', () => {

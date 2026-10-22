@@ -3,6 +3,7 @@
 PWA Angular pour apprendre à lire : un mot s'affiche, l'enfant choisit parmi trois images celle qui lui correspond.
 
 - Sur l'écran d'accueil, on coche les thèmes. Le paquet contient tous les mots des thèmes cochés.
+- Les pièges commencent si possible comme le mot (« vache » → « valise », « vélo »), pour obliger à lire tout le mot. On les cherche dans tous les thèmes. S'il en manque, on complète au hasard avec les thèmes cochés.
 - Une mauvaise image est barrée et l'enfant réessaie. Le mot revient alors plus loin dans le paquet.
 - La bonne image est entourée et la voix lit le mot. Avant le choix, la voix ne parle que si le « bouton d'aide » est activé dans les réglages.
 - L'écran de fin liste les mots qui ont demandé plus d'essais et propose de les rejouer.

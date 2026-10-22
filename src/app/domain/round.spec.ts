@@ -42,4 +42,34 @@ describe('buildRound', () => {
   it("se contente de moins d'options s'il n'y a pas assez de mots", () => {
     expect(buildRound(chat, [chat, word('minou', '🐱')]).options).toEqual([chat]);
   });
+
+  describe('pièges qui commencent comme la réponse', () => {
+    const vache = word('vache', '🐄');
+    const valise = word('valise', '🧳');
+    const velo = word('vélo', '🚲');
+    const catalog = [vache, valise, velo, word('lapin', '🐰'), word('pomme', '🍎')];
+
+    it('passent avant le hasard, le plus long début commun en premier', () => {
+      for (let seed = 0; seed < 30; seed++) {
+        const round = buildRound(vache, pool, seeded(seed), catalog);
+        expect(new Set(round.options)).toEqual(new Set([vache, valise, velo]));
+      }
+    });
+
+    it('viennent du catalogue, et le hasard complète depuis le paquet', () => {
+      for (let seed = 0; seed < 30; seed++) {
+        const round = buildRound(vache, pool, seeded(seed), [vache, valise]);
+        expect(round.options).toContain(valise);
+        expect(round.options.filter((o) => pool.includes(o))).toHaveLength(1);
+      }
+    });
+
+    it("sont écartés s'ils ont la même image qu'une autre option", () => {
+      const vachette = word('vachette', '🐄');
+      for (let seed = 0; seed < 30; seed++) {
+        const round = buildRound(vache, pool, seeded(seed), [vache, vachette, valise]);
+        expect(round.options).not.toContain(vachette);
+      }
+    });
+  });
 });

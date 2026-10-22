@@ -37,6 +37,15 @@ export function withArticle(word: Word): string {
   return articlePrefix(word) + word.text;
 }
 
+/** Nombre de lettres communes au début des deux mots : « vache » et « valise » → 2, « vélo » → 1. */
+export function sharedStart(a: Word, b: Word): number {
+  const x = a.text.toLowerCase();
+  const y = b.text.toLowerCase();
+  let n = 0;
+  while (n < x.length && x[n] === y[n]) n++;
+  return n;
+}
+
 /** Deux mots se confondraient à l'écran s'ils partagent un fichier ou un emoji. */
 export function sharePicture(a: Word, b: Word): boolean {
   const same = (x?: string, y?: string) => x !== undefined && x === y;

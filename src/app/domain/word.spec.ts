@@ -1,4 +1,4 @@
-import { sharePicture, withArticle, Word } from './word';
+import { sharedStart, sharePicture, withArticle, Word } from './word';
 
 const word = (text: string, article: string, picture: Word['picture'] = {}): Word => ({
   id: `t/${text}`,
@@ -24,5 +24,12 @@ describe('word', () => {
       false,
     );
     expect(sharePicture(word('a', 'le'), word('b', 'la'))).toBe(false);
+  });
+
+  it('compte les lettres communes au début des deux mots', () => {
+    expect(sharedStart(word('vache', 'la'), word('valise', 'la'))).toBe(2);
+    expect(sharedStart(word('vache', 'la'), word('vélo', 'le'))).toBe(1);
+    expect(sharedStart(word('vache', 'la'), word('chat', 'le'))).toBe(0);
+    expect(sharedStart(word('Lapin', 'le'), word('lait', 'le'))).toBe(2);
   });
 });
