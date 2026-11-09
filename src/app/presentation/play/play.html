@@ -25,63 +25,106 @@
 
   @for (r of round() ? [round()!] : []; track r) {
     <div class="card-enter flex flex-1 flex-col justify-center gap-6">
-      <!-- Le mot à lire -->
-      <div class="relative">
-        <span
-          class="tape tape-ochre absolute -top-3 left-1/2 z-10 h-7 w-28 -translate-x-1/2 rotate-2"
-          aria-hidden="true"
-        ></span>
-        <div class="index-card flex min-h-40 items-center justify-center gap-4 px-4 py-8">
-          <p
-            class="text-center font-read font-bold leading-none"
-            [class]="isLongWord() ? 'text-5xl sm:text-7xl' : 'text-6xl sm:text-8xl'"
-          >
-            <span
-              class="font-normal text-ink-soft"
-              [class]="isLongWord() ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl'"
-              >{{ articlePrefix(r.answer) }}</span
-            >{{ r.answer.text }}
-          </p>
-          @if (settings.helpEnabled()) {
-            <button
-              type="button"
-              class="shrink-0 rounded-full border-2 border-ink bg-white p-2 text-2xl"
-              aria-label="Écouter le mot"
-              (click)="help()"
+      @if (session.mode() === 'word-to-picture') {
+        <!-- Le mot à lire -->
+        <div class="relative">
+          <span
+            class="tape tape-ochre absolute -top-3 left-1/2 z-10 h-7 w-28 -translate-x-1/2 rotate-2"
+            aria-hidden="true"
+          ></span>
+          <div class="index-card flex min-h-40 items-center justify-center gap-4 px-4 py-8">
+            <p
+              class="text-center font-read font-bold leading-none"
+              [class]="isLongWord() ? 'text-5xl sm:text-7xl' : 'text-6xl sm:text-8xl'"
             >
-              🔈
-            </button>
-          }
+              <span
+                class="font-normal text-ink-soft"
+                [class]="isLongWord() ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl'"
+                >{{ articlePrefix(r.answer) }}</span
+              >{{ r.answer.text }}
+            </p>
+            @if (settings.helpEnabled()) {
+              <ng-container *ngTemplateOutlet="helpButton" />
+            }
+          </div>
         </div>
-      </div>
 
-      <!-- Les trois images -->
-      <ul
-        class="grid grid-cols-3 gap-3 sm:gap-5"
-        role="list"
-        aria-label="Quelle image correspond au mot ?"
-      >
-        @for (option of r.options; track option.id; let i = $index) {
-          <li>
-            <button
-              type="button"
-              class="flex aspect-square w-full items-center justify-center rounded-xl border-2 border-ink bg-white p-2 shadow-[3px_3px_0_var(--color-ink)] transition active:translate-y-0.5 disabled:cursor-default sm:p-4"
-              [class.opacity-40]="session.wrongPicks().has(option.id)"
-              [class.bg-sage-soft]="markOf(option) === 'circle'"
-              [disabled]="isDisabled(option)"
-              [attr.aria-label]="'Image ' + (i + 1)"
-              [appRoughMark]="markOf(option)"
-              (click)="session.pick(option)"
-            >
-              <app-picture
-                class="size-full"
-                [picture]="option.picture"
-                emojiSize="clamp(3rem, 16vw, 7rem)"
-              />
-            </button>
-          </li>
-        }
-      </ul>
+        <!-- Les trois images, retournées tant que l'enfant ne les a pas dévoilées -->
+        <ul
+          class="grid grid-cols-3 gap-3 sm:gap-5"
+          role="list"
+          aria-label="Quelle image correspond au mot ?"
+        >
+          @for (option of r.options; track option.id; let i = $index) {
+            <li>
+              @if (session.picturesHidden()) {
+                <button
+                  type="button"
+                  class="flex aspect-square w-full items-center justify-center rounded-xl border-2 border-ink bg-ochre-soft font-hand text-6xl text-ochre-deep shadow-[3px_3px_0_var(--color-ink)] transition active:translate-y-0.5 sm:text-8xl"
+                  aria-label="Retourner les images"
+                  (click)="session.revealPictures()"
+                >
+                  ?
+                </button>
+              } @else {
+                <button
+                  type="button"
+                  class="card-flip flex aspect-square w-full items-center justify-center rounded-xl border-2 border-ink bg-white p-2 shadow-[3px_3px_0_var(--color-ink)] transition active:translate-y-0.5 disabled:cursor-default sm:p-4"
+                  [class.opacity-40]="session.wrongPicks().has(option.id)"
+                  [class.bg-sage-soft]="markOf(option) === 'circle'"
+                  [disabled]="isDisabled(option)"
+                  [attr.aria-label]="'Image ' + (i + 1)"
+                  [appRoughMark]="markOf(option)"
+                  (click)="session.pick(option)"
+                >
+                  <app-picture
+                    class="size-full"
+                    [picture]="option.picture"
+                    emojiSize="clamp(3rem, 16vw, 7rem)"
+                  />
+                </button>
+              }
+            </li>
+          }
+        </ul>
+      } @else {
+        <!-- L'image à reconnaître -->
+        <div class="relative">
+          <span
+            class="tape tape-ochre absolute -top-3 left-1/2 z-10 h-7 w-28 -translate-x-1/2 rotate-2"
+            aria-hidden="true"
+          ></span>
+          <div class="index-card flex items-center justify-center gap-4 px-4 py-6">
+            <app-picture
+              class="size-40 sm:size-56"
+              [picture]="r.answer.picture"
+              emojiSize="clamp(6rem, 30vw, 10rem)"
+            />
+            @if (settings.helpEnabled()) {
+              <ng-container *ngTemplateOutlet="helpButton" />
+            }
+          </div>
+        </div>
+
+        <!-- Les trois mots, sans déterminant : « le » ou « la » suffirait parfois à éliminer un piège -->
+        <ul class="flex flex-col gap-3" role="list" aria-label="Quel mot correspond à l'image ?">
+          @for (option of r.options; track option.id) {
+            <li>
+              <button
+                type="button"
+                class="w-full rounded-xl border-2 border-ink bg-white px-4 py-4 text-center font-read text-4xl font-bold shadow-[3px_3px_0_var(--color-ink)] transition active:translate-y-0.5 disabled:cursor-default sm:text-5xl"
+                [class.opacity-40]="session.wrongPicks().has(option.id)"
+                [class.bg-sage-soft]="markOf(option) === 'circle'"
+                [disabled]="isDisabled(option)"
+                [appRoughMark]="markOf(option)"
+                (click)="session.pick(option)"
+              >
+                {{ option.text }}
+              </button>
+            </li>
+          }
+        </ul>
+      }
 
       <div class="min-h-16" aria-live="polite">
         @if (session.solved()) {
@@ -93,9 +136,30 @@
             Bravo ! Suivant <span aria-hidden="true">→</span>
           </button>
         } @else if (session.wrongPicks().size > 0) {
-          <p class="text-center font-hand text-3xl text-ink-soft">Presque ! Relis bien le mot…</p>
+          <p class="text-center font-hand text-3xl text-ink-soft">
+            {{
+              session.mode() === 'word-to-picture'
+                ? 'Presque ! Relis bien le mot…'
+                : 'Presque ! Relis bien les mots…'
+            }}
+          </p>
+        } @else if (session.picturesHidden()) {
+          <p class="text-center font-hand text-3xl text-ink-soft">
+            Lis bien le mot, puis retourne les cartes !
+          </p>
         }
       </div>
     </div>
   }
+
+  <ng-template #helpButton>
+    <button
+      type="button"
+      class="shrink-0 rounded-full border-2 border-ink bg-white p-2 text-2xl"
+      aria-label="Écouter le mot"
+      (click)="help()"
+    >
+      🔈
+    </button>
+  </ng-template>
 </main>

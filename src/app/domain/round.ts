@@ -3,6 +3,9 @@ import { sharedStart, sharePicture, Word } from './word';
 
 export const OPTIONS_PER_ROUND = 3;
 
+/** Sens de l'exercice : lire le mot et trouver son image, ou voir l'image et trouver son mot. */
+export type GameMode = 'word-to-picture' | 'picture-to-word';
+
 /** Une carte jouée : le mot à lire et les images proposées, déjà mélangées. */
 export interface Round {
   readonly answer: Word;
@@ -13,7 +16,7 @@ export interface Round {
  * Choisit les pièges : d'abord les mots de `catalog` qui commencent comme la réponse
  * (« valise » puis « vélo » pour « vache »), pour obliger l'enfant à lire tout le mot ;
  * puis le hasard dans `pool`. Un mot dont l'image pourrait se confondre avec une
- * image déjà proposée est écarté.
+ * image déjà proposée, ou qui s'écrit pareil, est écarté.
  * S'il n'y a pas assez de mots distincts, la manche a moins d'options.
  */
 export function buildRound(
@@ -25,7 +28,7 @@ export function buildRound(
   const options: Word[] = [answer];
   for (const candidate of [...lookalikes(answer, catalog, rng), ...shuffle(pool, rng)]) {
     if (options.length === OPTIONS_PER_ROUND) break;
-    if (options.some((o) => o.id === candidate.id || sharePicture(o, candidate))) continue;
+    if (options.some((o) => o.text === candidate.text || sharePicture(o, candidate))) continue;
     options.push(candidate);
   }
   return { answer, options: shuffle(options, rng) };

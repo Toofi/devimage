@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { Speaker } from '../../application/ports';
 import { SessionStore } from '../../application/session.store';
@@ -11,7 +12,7 @@ const LONG_WORD = 8;
 @Component({
   selector: 'app-play',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PictureView, RoughMark],
+  imports: [NgTemplateOutlet, PictureView, RoughMark],
   templateUrl: './play.html',
   host: { '(document:keydown)': 'onKey($event)' },
 })
@@ -45,11 +46,13 @@ export class Play {
     if (round) this.speaker.speak(withArticle(round.answer));
   }
 
-  /** 1, 2, 3 choisissent une image ; Entrée ou → passent à la suite. */
+  /** 1, 2, 3 retournent les images, puis choisissent une option ; Entrée ou → passent à la suite. */
   protected onKey(event: KeyboardEvent): void {
     const options = this.round()?.options ?? [];
     const index = Number(event.key) - 1;
-    if (options[index]) {
+    if (options[index] && this.session.picturesHidden()) {
+      this.session.revealPictures();
+    } else if (options[index]) {
       this.session.pick(options[index]);
     } else if ((event.key === 'Enter' || event.key === 'ArrowRight') && this.session.solved()) {
       event.preventDefault();
