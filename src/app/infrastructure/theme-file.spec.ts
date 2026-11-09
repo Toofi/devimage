@@ -7,6 +7,7 @@ const valid = {
   mots: [
     { mot: 'chat', det: 'le', emoji: '🐱', arasaac: 2462 },
     { mot: 'âne', det: "l'", image: 'animaux/ane.png' },
+    { mot: 'ciseaux', det: 'les', arasaac: 6664 },
   ],
 };
 
@@ -36,7 +37,7 @@ describe('theme-file', () => {
     });
     expect(problems).toEqual([
       '« label » manquant',
-      "mot n°1 (chat) : « det » doit valoir le, la, l'",
+      "mot n°1 (chat) : « det » doit valoir le, la, l', les",
       'mot n°2 (chien) : il faut au moins « image », « arasaac » ou « emoji »',
       '« chat » est en double',
     ]);

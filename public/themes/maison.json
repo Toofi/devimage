@@ -22,6 +22,22 @@
     { "mot": "assiette", "det": "l'", "arasaac": 2532 },
     { "mot": "balai", "det": "le", "emoji": "🧹", "arasaac": 2745 },
     { "mot": "bougie", "det": "la", "emoji": "🕯️", "arasaac": 6242 },
-    { "mot": "savon", "det": "le", "emoji": "🧼", "arasaac": 2964 }
+    { "mot": "savon", "det": "le", "emoji": "🧼", "arasaac": 2964 },
+    { "mot": "maison", "det": "la", "emoji": "🏡", "arasaac": 2317 },
+    { "mot": "toit", "det": "le", "arasaac": 2584 },
+    { "mot": "escalier", "det": "l'", "arasaac": 2379 },
+    { "mot": "douche", "det": "la", "emoji": "🚿", "arasaac": 2370 },
+    { "mot": "toilettes", "det": "les", "emoji": "🚽", "arasaac": 2430 },
+    { "mot": "oreiller", "det": "l'", "arasaac": 2250 },
+    { "mot": "couverture", "det": "la", "arasaac": 2459 },
+    { "mot": "verre", "det": "le", "arasaac": 2610 },
+    { "mot": "bol", "det": "le", "emoji": "🥣", "arasaac": 24005 },
+    { "mot": "casserole", "det": "la", "arasaac": 3230 },
+    { "mot": "poubelle", "det": "la", "emoji": "🗑️", "arasaac": 2724 },
+    { "mot": "téléphone", "det": "le", "emoji": "☎️", "arasaac": 2585 },
+    { "mot": "horloge", "det": "l'", "emoji": "🕰️", "arasaac": 5561 },
+    { "mot": "tapis", "det": "le", "arasaac": 2249 },
+    { "mot": "rideau", "det": "le", "arasaac": 8344 },
+    { "mot": "radiateur", "det": "le", "arasaac": 3288 }
   ]
 }

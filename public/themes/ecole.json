@@ -19,6 +19,12 @@
     { "mot": "craie", "det": "la", "arasaac": 16343 },
     { "mot": "agrafeuse", "det": "l'", "arasaac": 2413 },
     { "mot": "bureau", "det": "le", "arasaac": 2916 },
-    { "mot": "cartable", "det": "le", "arasaac": 2475 }
+    { "mot": "cartable", "det": "le", "arasaac": 2475 },
+    { "mot": "ciseaux", "det": "les", "emoji": "✂️", "arasaac": 6664 },
+    { "mot": "trousse", "det": "la", "arasaac": 8575 },
+    { "mot": "feutre", "det": "le", "arasaac": 3246 },
+    { "mot": "maîtresse", "det": "la", "emoji": "🧑‍🏫", "arasaac": 28003 },
+    { "mot": "élève", "det": "l'", "arasaac": 5899 },
+    { "mot": "cour", "det": "la", "arasaac": 33065 }
   ]
 }

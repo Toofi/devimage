@@ -49,7 +49,7 @@ Un thème est un fichier `public/themes/<id>.json` :
 
 | Champ | Rôle |
 |---|---|
-| `det` | `le`, `la` ou `l'`. Affiché en gris devant le mot et lu par la voix. |
+| `det` | `le`, `la`, `l'` ou `les`. Affiché en gris devant le mot et lu par la voix. |
 | `image` | Ta propre image, chemin relatif à `public/images/`. Prioritaire. |
 | `arasaac` | Identifiant d'un pictogramme [ARASAAC](https://arasaac.org), téléchargé dans `public/images/arasaac/`. |
 | `emoji` | Illustration si le mot n'a pas de fichier, ou de secours si le fichier ne charge pas. |

@@ -21,6 +21,10 @@
     { "mot": "caravane", "det": "la", "arasaac": 38741 },
     { "mot": "skateboard", "det": "le", "emoji": "🛹", "arasaac": 2507 },
     { "mot": "kayak", "det": "le", "arasaac": 6179 },
-    { "mot": "roller", "det": "le", "arasaac": 30602 }
+    { "mot": "roller", "det": "le", "arasaac": 30602 },
+    { "mot": "taxi", "det": "le", "emoji": "🚕", "arasaac": 2580 },
+    { "mot": "métro", "det": "le", "emoji": "🚇", "arasaac": 2472 },
+    { "mot": "tramway", "det": "le", "emoji": "🚊", "arasaac": 2602 },
+    { "mot": "camionnette", "det": "la", "emoji": "🚐", "arasaac": 3275 }
   ]
 }

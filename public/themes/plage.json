@@ -1,0 +1,16 @@
+{
+  "id": "plage",
+  "label": "La plage",
+  "emoji": "🏖️",
+  "mots": [
+    { "mot": "mer", "det": "la", "arasaac": 2925 },
+    { "mot": "plage", "det": "la", "arasaac": 2826 },
+    { "mot": "sable", "det": "le", "arasaac": 4565 },
+    { "mot": "vague", "det": "la", "emoji": "🌊", "arasaac": 4706 },
+    { "mot": "coquillage", "det": "le", "emoji": "🐚", "arasaac": 38075 },
+    { "mot": "crabe", "det": "le", "emoji": "🦀", "arasaac": 2312 },
+    { "mot": "étoile de mer", "det": "l'", "arasaac": 3310 },
+    { "mot": "parasol", "det": "le", "emoji": "⛱️", "arasaac": 4746 },
+    { "mot": "château de sable", "det": "le", "arasaac": 4790 }
+  ]
+}

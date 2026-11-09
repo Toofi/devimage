@@ -22,6 +22,27 @@
     { "mot": "tortue", "det": "la", "emoji": "🐢", "arasaac": 2596 },
     { "mot": "ours", "det": "l'", "emoji": "🐻", "arasaac": 2488 },
     { "mot": "grenouille", "det": "la", "emoji": "🐸", "arasaac": 2543 },
-    { "mot": "papillon", "det": "le", "emoji": "🦋", "arasaac": 2465 }
+    { "mot": "papillon", "det": "le", "emoji": "🦋", "arasaac": 2465 },
+    { "mot": "souris", "det": "la", "emoji": "🐭", "arasaac": 2546 },
+    { "mot": "loup", "det": "le", "emoji": "🐺", "arasaac": 5892 },
+    { "mot": "renard", "det": "le", "emoji": "🦊", "arasaac": 2623 },
+    { "mot": "hibou", "det": "le", "emoji": "🦉", "arasaac": 2671 },
+    { "mot": "oiseau", "det": "l'", "emoji": "🐦", "arasaac": 2490 },
+    { "mot": "abeille", "det": "l'", "emoji": "🐝", "arasaac": 24823 },
+    { "mot": "escargot", "det": "l'", "emoji": "🐌", "arasaac": 8061 },
+    { "mot": "araignée", "det": "l'", "emoji": "🕷️", "arasaac": 38275 },
+    { "mot": "coccinelle", "det": "la", "emoji": "🐞", "arasaac": 2924 },
+    { "mot": "zèbre", "det": "le", "emoji": "🦓", "arasaac": 2324 },
+    { "mot": "tigre", "det": "le", "emoji": "🐅", "arasaac": 2590 },
+    { "mot": "requin", "det": "le", "emoji": "🦈", "arasaac": 2589 },
+    { "mot": "dauphin", "det": "le", "emoji": "🐬", "arasaac": 2732 },
+    { "mot": "baleine", "det": "la", "emoji": "🐳", "arasaac": 2268 },
+    { "mot": "pingouin", "det": "le", "emoji": "🐧", "arasaac": 3243 },
+    { "mot": "chèvre", "det": "la", "emoji": "🐐", "arasaac": 25887 },
+    { "mot": "âne", "det": "l'", "arasaac": 2291 },
+    { "mot": "hérisson", "det": "le", "emoji": "🦔", "arasaac": 26829 },
+    { "mot": "écureuil", "det": "l'", "emoji": "🐿️", "arasaac": 25815 },
+    { "mot": "kangourou", "det": "le", "emoji": "🦘", "arasaac": 2313 },
+    { "mot": "panda", "det": "le", "emoji": "🐼", "arasaac": 2869 }
   ]
 }

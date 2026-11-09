@@ -18,6 +18,15 @@
     { "mot": "dos", "det": "le", "arasaac": 2748 },
     { "mot": "genou", "det": "le", "arasaac": 14540 },
     { "mot": "cou", "det": "le", "arasaac": 25040 },
-    { "mot": "ongle", "det": "l'", "arasaac": 2783 }
+    { "mot": "ongle", "det": "l'", "arasaac": 2783 },
+    { "mot": "cheveu", "det": "le", "arasaac": 2851 },
+    { "mot": "épaule", "det": "l'", "arasaac": 2977 },
+    { "mot": "coude", "det": "le", "arasaac": 2707 },
+    { "mot": "langue", "det": "la", "emoji": "👅", "arasaac": 2944 },
+    { "mot": "joue", "det": "la", "arasaac": 2919 },
+    { "mot": "sourcil", "det": "le", "arasaac": 3011 },
+    { "mot": "menton", "det": "le", "arasaac": 2991 },
+    { "mot": "cœur", "det": "le", "arasaac": 2715 },
+    { "mot": "talon", "det": "le", "arasaac": 3399 }
   ]
 }
