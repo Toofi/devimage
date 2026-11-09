@@ -1,0 +1,25 @@
+{
+  "id": "nature",
+  "label": "La nature",
+  "emoji": "🌦️",
+  "mots": [
+    { "mot": "soleil", "det": "le", "emoji": "☀️", "arasaac": 2798 },
+    { "mot": "lune", "det": "la", "emoji": "🌙", "arasaac": 2933 },
+    { "mot": "étoile", "det": "l'", "emoji": "⭐", "arasaac": 4644 },
+    { "mot": "nuage", "det": "le", "emoji": "☁️", "arasaac": 2883 },
+    { "mot": "pluie", "det": "la", "emoji": "🌧️", "arasaac": 3123 },
+    { "mot": "neige", "det": "la", "emoji": "❄️", "arasaac": 3135 },
+    { "mot": "vent", "det": "le", "emoji": "🌬️", "arasaac": 7259 },
+    { "mot": "éclair", "det": "l'", "emoji": "⚡", "arasaac": 7288 },
+    { "mot": "arc-en-ciel", "det": "l'", "emoji": "🌈", "arasaac": 2986 },
+    { "mot": "arbre", "det": "l'", "emoji": "🌳", "arasaac": 3057 },
+    { "mot": "fleur", "det": "la", "emoji": "🌸", "arasaac": 3102 },
+    { "mot": "feuille", "det": "la", "emoji": "🍃", "arasaac": 5077 },
+    { "mot": "herbe", "det": "l'", "emoji": "🌱", "arasaac": 3113 },
+    { "mot": "montagne", "det": "la", "emoji": "⛰️", "arasaac": 2909 },
+    { "mot": "forêt", "det": "la", "arasaac": 2666 },
+    { "mot": "rivière", "det": "la", "arasaac": 2811 },
+    { "mot": "pierre", "det": "la", "emoji": "🪨", "arasaac": 6594 },
+    { "mot": "sapin", "det": "le", "emoji": "🌲", "arasaac": 3051 }
+  ]
+}

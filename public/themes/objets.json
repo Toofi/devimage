@@ -1,0 +1,15 @@
+{
+  "id": "objets",
+  "label": "Les objets",
+  "emoji": "🎈",
+  "mots": [
+    { "mot": "parapluie", "det": "le", "emoji": "☂️", "arasaac": 2500 },
+    { "mot": "cadeau", "det": "le", "emoji": "🎁", "arasaac": 3149 },
+    { "mot": "valise", "det": "la", "emoji": "🧳", "arasaac": 2931 },
+    { "mot": "boîte", "det": "la", "emoji": "📦", "arasaac": 5935 },
+    { "mot": "bouteille", "det": "la", "arasaac": 2288 },
+    { "mot": "château", "det": "le", "emoji": "🏰", "arasaac": 17279 },
+    { "mot": "bonhomme de neige", "det": "le", "emoji": "⛄", "arasaac": 3131 },
+    { "mot": "sac", "det": "le", "emoji": "👜", "arasaac": 2284 }
+  ]
+}

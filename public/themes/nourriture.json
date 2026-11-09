@@ -22,6 +22,26 @@
     { "mot": "chocolat", "det": "le", "emoji": "🍫", "arasaac": 25940 },
     { "mot": "ananas", "det": "l'", "emoji": "🍍", "arasaac": 2525 },
     { "mot": "croissant", "det": "le", "emoji": "🥐", "arasaac": 2358 },
-    { "mot": "champignon", "det": "le", "emoji": "🍄", "arasaac": 10220 }
+    { "mot": "champignon", "det": "le", "emoji": "🍄", "arasaac": 10220 },
+    { "mot": "orange", "det": "l'", "emoji": "🍊", "arasaac": 2483 },
+    { "mot": "pastèque", "det": "la", "emoji": "🍉", "arasaac": 2557 },
+    { "mot": "kiwi", "det": "le", "emoji": "🥝", "arasaac": 2955 },
+    { "mot": "abricot", "det": "l'", "arasaac": 2983 },
+    { "mot": "frite", "det": "la", "emoji": "🍟", "arasaac": 8653 },
+    { "mot": "soupe", "det": "la", "emoji": "🍲", "arasaac": 2573 },
+    { "mot": "riz", "det": "le", "emoji": "🍚", "arasaac": 39387 },
+    { "mot": "pâtes", "det": "les", "emoji": "🍝", "arasaac": 25486 },
+    { "mot": "salade", "det": "la", "emoji": "🥬", "arasaac": 2446 },
+    { "mot": "jus", "det": "le", "emoji": "🧃", "arasaac": 11461 },
+    { "mot": "biscuit", "det": "le", "emoji": "🍪", "arasaac": 6525 },
+    { "mot": "crêpe", "det": "la", "emoji": "🥞", "arasaac": 37849 },
+    { "mot": "yaourt", "det": "le", "arasaac": 2618 },
+    { "mot": "beurre", "det": "le", "emoji": "🧈", "arasaac": 2461 },
+    { "mot": "sucre", "det": "le", "arasaac": 25560 },
+    { "mot": "miel", "det": "le", "emoji": "🍯", "arasaac": 2911 },
+    { "mot": "haricot", "det": "le", "arasaac": 8354 },
+    { "mot": "oignon", "det": "l'", "emoji": "🧅", "arasaac": 2323 },
+    { "mot": "pomme de terre", "det": "la", "emoji": "🥔", "arasaac": 2503 },
+    { "mot": "petits pois", "det": "les", "arasaac": 7182 }
   ]
 }

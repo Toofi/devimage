@@ -22,6 +22,10 @@
     { "mot": "cravate", "det": "la", "arasaac": 2716 },
     { "mot": "chapeau", "det": "le", "arasaac": 2572 },
     { "mot": "t-shirt", "det": "le", "emoji": "👕", "arasaac": 2309 },
-    { "mot": "sandale", "det": "la", "arasaac": 37575 }
+    { "mot": "sandale", "det": "la", "arasaac": 37575 },
+    { "mot": "lunettes", "det": "les", "emoji": "👓", "arasaac": 3329 },
+    { "mot": "gilet", "det": "le", "arasaac": 4872 },
+    { "mot": "anorak", "det": "l'", "arasaac": 25804 },
+    { "mot": "maillot de bain", "det": "le", "emoji": "🩱", "arasaac": 2270 }
   ]
 }

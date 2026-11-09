@@ -1,0 +1,19 @@
+{
+  "id": "metiers",
+  "label": "Les métiers",
+  "emoji": "👷",
+  "mots": [
+    { "mot": "pompier", "det": "le", "emoji": "🧑‍🚒", "arasaac": 2664 },
+    { "mot": "policier", "det": "le", "emoji": "👮", "arasaac": 5547 },
+    { "mot": "médecin", "det": "le", "emoji": "🧑‍⚕️", "arasaac": 2467 },
+    { "mot": "infirmière", "det": "l'", "arasaac": 31390 },
+    { "mot": "boulanger", "det": "le", "arasaac": 11324 },
+    { "mot": "facteur", "det": "le", "arasaac": 2690 },
+    { "mot": "cuisinier", "det": "le", "emoji": "🧑‍🍳", "arasaac": 6985 },
+    { "mot": "fermier", "det": "le", "emoji": "🧑‍🌾", "arasaac": 3338 },
+    { "mot": "coiffeur", "det": "le", "arasaac": 2849 },
+    { "mot": "vétérinaire", "det": "le", "arasaac": 2780 },
+    { "mot": "peintre", "det": "le", "emoji": "🧑‍🎨", "arasaac": 2834 },
+    { "mot": "chanteur", "det": "le", "emoji": "🧑‍🎤", "arasaac": 4585 }
+  ]
+}

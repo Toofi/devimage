@@ -23,7 +23,7 @@ export interface ThemeFile {
 
 export const THEMES_DIR = 'themes';
 export const INDEX_FILE = 'index.json';
-const ARTICLES = ['le', 'la', "l'"];
+const ARTICLES = ['le', 'la', "l'", 'les'];
 
 /** Chemin (relatif à la racine du site) de l'illustration en fichier d'un mot, s'il en a une. */
 export function picturePath(entry: WordEntry): string | undefined {

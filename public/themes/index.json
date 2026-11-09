@@ -4,7 +4,11 @@
   "ecole.json",
   "jouets.json",
   "maison.json",
+  "metiers.json",
+  "nature.json",
   "nourriture.json",
+  "objets.json",
+  "plage.json",
   "transports.json",
   "vetements.json"
 ]
