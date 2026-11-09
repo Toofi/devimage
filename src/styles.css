@@ -136,6 +136,18 @@
   animation: card-enter 280ms ease-out;
 }
 
+@keyframes card-flip {
+  from {
+    transform: perspective(600px) rotateY(90deg);
+  }
+  to {
+    transform: none;
+  }
+}
+.card-flip {
+  animation: card-flip 260ms ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

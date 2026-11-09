@@ -1,10 +1,11 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { createDeck, current, DeckState, fail, isFinished, pass } from '../domain/deck';
-import { buildRound, Round } from '../domain/round';
+import { buildRound, GameMode, Round } from '../domain/round';
 import { withArticle, Word } from '../domain/word';
 import { CatalogStore } from './catalog.store';
 import { Speaker } from './ports';
 import { ScreenStore } from './screen.store';
+import { SettingsStore } from './settings.store';
 
 export interface Struggle {
   readonly word: Word;
@@ -13,14 +14,17 @@ export interface Struggle {
 }
 
 /**
- * Une partie : un paquet de mots ; pour chaque carte, trois images dont une seule est la bonne.
- * Une erreur barre l'image et l'enfant réessaie ; la carte reviendra plus loin dans le paquet.
+ * Une partie : un paquet de mots ; pour chaque carte, trois options dont une seule est la bonne.
+ * En mode mot → image, les images sont retournées : l'enfant lit le mot, puis les dévoile.
+ * En mode image → mot, une image et trois mots écrits.
+ * Une erreur barre l'option et l'enfant réessaie ; la carte reviendra plus loin dans le paquet.
  */
 @Injectable({ providedIn: 'root' })
 export class SessionStore {
   private readonly speaker = inject(Speaker);
   private readonly screen = inject(ScreenStore);
   private readonly catalog = inject(CatalogStore);
+  private readonly settings = inject(SettingsStore);
 
   /** Les mots où l'on pioche les pièges au hasard : tous ceux des thèmes cochés. */
   private readonly pool = signal<readonly Word[]>([]);
@@ -28,7 +32,10 @@ export class SessionStore {
   private readonly allWords = computed(() => this.catalog.themes().flatMap((t) => t.words));
   private readonly deck = signal<DeckState>(createDeck([]));
 
+  readonly mode = signal<GameMode>('word-to-picture');
   readonly round = signal<Round | null>(null);
+  /** Les images de la manche sont encore retournées : on ne peut pas choisir. */
+  readonly picturesHidden = signal(false);
   readonly wrongPicks = signal<ReadonlySet<string>>(new Set());
   readonly solved = signal(false);
 
@@ -44,6 +51,7 @@ export class SessionStore {
 
   start(words: readonly Word[], pool: readonly Word[] = words): void {
     if (words.length === 0) return;
+    this.mode.set(this.settings.mode());
     this.pool.set(pool);
     this.deck.set(createDeck(words.map((w) => w.id)));
     this.dealRound();
@@ -62,9 +70,13 @@ export class SessionStore {
     this.start(this.pool());
   }
 
+  revealPictures(): void {
+    this.picturesHidden.set(false);
+  }
+
   pick(word: Word): void {
     const round = this.round();
-    if (!round || this.solved()) return;
+    if (!round || this.solved() || this.picturesHidden()) return;
     if (word.id === round.answer.id) {
       this.solved.set(true);
       this.speaker.speak(withArticle(word));
@@ -90,6 +102,7 @@ export class SessionStore {
     const id = current(this.deck());
     const answer = this.pool().find((w) => w.id === id);
     this.round.set(answer ? buildRound(answer, this.pool(), Math.random, this.allWords()) : null);
+    this.picturesHidden.set(this.mode() === 'word-to-picture');
     this.wrongPicks.set(new Set());
     this.solved.set(false);
   }

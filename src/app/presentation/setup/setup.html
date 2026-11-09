@@ -1,8 +1,35 @@
 <main class="mx-auto flex max-w-3xl flex-col gap-8 px-4 pb-36 pt-8 sm:px-6">
   <header class="text-center">
     <h1 class="font-display text-5xl font-black tracking-tight text-ochre sm:text-6xl">Devimage</h1>
-    <p class="mt-1 font-hand text-2xl text-ink-soft">Lis le mot, trouve la bonne image !</p>
+    <p class="mt-1 font-hand text-2xl text-ink-soft">Lis les mots, trouve les bonnes images !</p>
   </header>
+
+  <section class="flex flex-col gap-3" aria-labelledby="jeu">
+    <h2 id="jeu" class="tape tape-ochre -rotate-1 self-start font-display text-lg font-bold">
+      Le jeu
+    </h2>
+    <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-labelledby="jeu">
+      @for (mode of modes; track mode.id) {
+        @let on = settings.mode() === mode.id;
+        <button
+          type="button"
+          role="radio"
+          class="flex flex-col items-center gap-1 rounded-lg border-2 px-2 py-4 transition"
+          [class]="
+            on
+              ? 'border-ink bg-white shadow-[2px_2px_0_var(--color-ink)]'
+              : 'border-dashed border-taupe/60 bg-paper/60 text-ink-soft opacity-70'
+          "
+          [attr.aria-checked]="on"
+          (click)="settings.mode.set(mode.id)"
+        >
+          <span class="text-5xl leading-none" aria-hidden="true">{{ mode.icon }}</span>
+          <span class="mt-2 font-display text-lg font-bold leading-tight">{{ mode.label }}</span>
+          <span class="font-hand text-lg leading-none">{{ mode.hint }}</span>
+        </button>
+      }
+    </div>
+  </section>
 
   <section class="flex flex-col gap-3" aria-labelledby="themes">
     <div class="flex flex-wrap items-baseline justify-between gap-2">

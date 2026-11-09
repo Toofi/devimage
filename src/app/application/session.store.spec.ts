@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Word } from '../domain/word';
 import { Speaker } from './ports';
 import { ScreenStore } from './screen.store';
+import { SettingsStore } from './settings.store';
 import { SessionStore } from './session.store';
 import { CatalogStore } from './catalog.store';
 import { ANIMAUX, FakeSpeaker, fakeAdapters, FRUITS, theme } from './testing/fakes';
@@ -20,6 +21,10 @@ describe('SessionStore', () => {
   });
 
   const answer = (): Word => session.round()!.answer;
+  const play = (word: Word): void => {
+    session.revealPictures();
+    session.pick(word);
+  };
   const wrongOption = (): Word => session.round()!.options.find((o) => o.id !== answer().id)!;
 
   it('démarre une partie avec trois images dont la bonne', () => {
@@ -32,7 +37,7 @@ describe('SessionStore', () => {
   it('une erreur barre l’image sans passer à la suite', () => {
     session.start(pool);
     const wrong = wrongOption();
-    session.pick(wrong);
+    play(wrong);
     expect(session.wrongPicks().has(wrong.id)).toBe(true);
     expect(session.solved()).toBe(false);
     session.next();
@@ -41,14 +46,14 @@ describe('SessionStore', () => {
 
   it('la bonne image lit le mot avec son déterminant', () => {
     session.start(pool);
-    session.pick(answer());
+    play(answer());
     expect(session.solved()).toBe(true);
     expect(speaker.spoken).toEqual([`le ${answer().text}`]);
   });
 
   it('un mot trouvé du premier coup sort du paquet', () => {
     session.start(pool);
-    session.pick(answer());
+    play(answer());
     session.next();
     expect(session.progress().done).toBe(1);
   });
@@ -56,13 +61,13 @@ describe('SessionStore', () => {
   it('un mot trouvé après une erreur revient et compte parmi les mots difficiles', () => {
     session.start(ANIMAUX.words, pool);
     const hard = answer();
-    session.pick(wrongOption());
-    session.pick(hard);
+    play(wrongOption());
+    play(hard);
     session.next();
     expect(session.progress().done).toBe(0);
 
     while (screen.current() === 'play') {
-      session.pick(answer());
+      play(answer());
       session.next();
     }
     expect(screen.current()).toBe('done');
@@ -81,14 +86,37 @@ describe('SessionStore', () => {
     expect(new Set(session.round()!.options)).toEqual(new Set([chat, ...vetements.words]));
   });
 
+  it('en mode mot → image, les images sont retournées tant qu’on ne les a pas dévoilées', () => {
+    session.start(pool);
+    expect(session.picturesHidden()).toBe(true);
+    session.pick(answer());
+    expect(session.solved()).toBe(false);
+
+    session.revealPictures();
+    session.pick(answer());
+    expect(session.solved()).toBe(true);
+
+    session.next();
+    expect(session.picturesHidden()).toBe(true);
+  });
+
+  it('en mode image → mot, on choisit directement', () => {
+    TestBed.inject(SettingsStore).mode.set('picture-to-word');
+    session.start(pool);
+    expect(session.mode()).toBe('picture-to-word');
+    expect(session.picturesHidden()).toBe(false);
+    session.pick(answer());
+    expect(session.solved()).toBe(true);
+  });
+
   it('rejouer les mots difficiles garde tous les pièges possibles', () => {
     session.start(ANIMAUX.words, pool);
     const hard = answer();
-    session.pick(wrongOption());
-    session.pick(hard);
+    play(wrongOption());
+    play(hard);
     session.next();
     while (screen.current() === 'play') {
-      session.pick(answer());
+      play(answer());
       session.next();
     }
 

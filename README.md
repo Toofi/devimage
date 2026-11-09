@@ -1,11 +1,16 @@
 # Devimage
 
-PWA Angular pour apprendre à lire : un mot s'affiche, l'enfant choisit parmi trois images celle qui lui correspond.
+PWA Angular pour apprendre à lire, avec deux jeux au choix sur l'écran d'accueil :
+
+- **Mot → image** : un mot s'affiche avec trois cartes retournées. L'enfant lit le mot, touche une carte pour dévoiler les trois images, puis choisit la bonne. L'enfant lit donc le mot avant d'avoir vu les images.
+- **Image → mot** : une image s'affiche avec trois mots écrits, sans déterminant (« le » ou « la » suffirait parfois à éliminer un piège). L'enfant choisit le mot qui correspond.
+
+Dans les deux jeux :
 
 - Sur l'écran d'accueil, on coche les thèmes. Le paquet contient tous les mots des thèmes cochés.
 - Les pièges commencent si possible comme le mot (« vache » → « valise », « vélo »), pour obliger à lire tout le mot. On les cherche dans tous les thèmes. S'il en manque, on complète au hasard avec les thèmes cochés.
-- Une mauvaise image est barrée et l'enfant réessaie. Le mot revient alors plus loin dans le paquet.
-- La bonne image est entourée et la voix lit le mot. Avant le choix, la voix ne parle que si le « bouton d'aide » est activé dans les réglages.
+- Une mauvaise réponse est barrée et l'enfant réessaie. Le mot revient alors plus loin dans le paquet.
+- La bonne réponse est entourée et la voix lit le mot. Avant le choix, la voix ne parle que si le « bouton d'aide » est activé dans les réglages.
 - L'écran de fin liste les mots qui ont demandé plus d'essais et propose de les rejouer.
 
 ## Développement
@@ -54,7 +59,7 @@ Un thème est un fichier `public/themes/<id>.json` :
 | `arasaac` | Identifiant d'un pictogramme [ARASAAC](https://arasaac.org), téléchargé dans `public/images/arasaac/`. |
 | `emoji` | Illustration si le mot n'a pas de fichier, ou de secours si le fichier ne charge pas. |
 
-Il faut au moins un des trois champs `image`, `arasaac` ou `emoji`. Deux mots qui partagent une image ne sont jamais proposés ensemble.
+Il faut au moins un des trois champs `image`, `arasaac` ou `emoji`. Deux mots qui partagent une image ne sont jamais proposés ensemble, pas plus que deux mots qui s'écrivent pareil.
 
 ```bash
 npm run pictos -- --chercher chat   # trouver l'identifiant ARASAAC d'un mot

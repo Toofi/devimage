@@ -5,6 +5,14 @@ import { ScreenStore } from '../../application/screen.store';
 import { SessionStore } from '../../application/session.store';
 import { SettingsStore } from '../../application/settings.store';
 import { ThemeSelectionStore } from '../../application/theme-selection.store';
+import { GameMode } from '../../domain/round';
+
+interface ModeChoice {
+  readonly id: GameMode;
+  readonly icon: string;
+  readonly label: string;
+  readonly hint: string;
+}
 
 @Component({
   selector: 'app-setup',
@@ -18,6 +26,11 @@ export class Setup {
   protected readonly speaker = inject(Speaker);
   protected readonly screen = inject(ScreenStore);
   private readonly session = inject(SessionStore);
+
+  protected readonly modes: readonly ModeChoice[] = [
+    { id: 'word-to-picture', icon: '📖', label: 'Mot → image', hint: 'lis, retourne, choisis' },
+    { id: 'picture-to-word', icon: '🖼️', label: 'Image → mot', hint: 'trouve le bon mot' },
+  ];
 
   protected start(): void {
     this.session.start(this.selection.words());
